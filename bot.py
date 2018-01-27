@@ -25,5 +25,8 @@ def cleanup_code(content):
 async def help(self, ctx, cmd=None):
     color = discord.Color(value=0x00ff00)
     em = discord.Embed(color=color, title='Bot Commands')
-    em.description = "**Who am I? I am dat banana boi #1982's simple eval bot. I can help you run Python code.**"
+    em.description = "**Who am I? I am dat banana boi #1982's simple eval bot. I can help you run Python code.** \n <this> means that the argument is **optional**. \n [this] means that the argument is **required**."
     em.add_field(name='help <category|command>', value='Shows the help message for this bot.')
+    em.add_field(name='eval [code]', value='Runs Python code. Great for testing. Also the main purpose of this bot.')
+    em.add_field(name='invite', value='Aye! Invite me to your server.')
+    
