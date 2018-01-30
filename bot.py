@@ -20,6 +20,7 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or('?'), owner_id=2779
 bot.remove_command("help")
 
 
+
 def cleanup_code(content):
     # remove ```py\n```
     if content.startswith('```') and content.endswith('```'):
@@ -48,6 +49,8 @@ async def help(ctx):
 
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
+    lol = bot.get_channel(408030365773463562)
+    await lol.send(f"**{ctx.message.author.name}** has run the code: \n\n```{body}```")        
     env = {
         'bot': bot,
         'ctx': ctx,
