@@ -8,7 +8,7 @@ import aiohttp
 import asyncio
 from discord.ext import commands
 import traceback
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('*'), owner_id=277981712989028353)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('?'), owner_id=277981712989028353)
 
 
 bot.remove_command("help")
@@ -20,6 +20,13 @@ def cleanup_code(content):
         return '\n'.join(content.split('\n')[1:-1])
       
     return content.strip('` \n')
+
+
+@bot.event
+async def on_ready():
+    print('Bot is online, and ready to ROLL!')
+    await bot.change_presence(game=discord.Game(name="using ?help!"))
+
 
 @bot.command()
 async def help(ctx):
