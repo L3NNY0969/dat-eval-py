@@ -39,9 +39,7 @@ async def help(ctx):
     em.add_field(name='ping', value='PONG! Returns websocket latency.')
     await ctx.send(embed=em)
     
-    
-@bot.command()
-async def eval(ctx, code):
+
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
     env = {
