@@ -57,7 +57,7 @@ async def help(ctx):
 @bot.command()
 async def reqaccess(ctx):
     lol = bot.get_channel(408030365773463562)
-    await lol.send(f"@dat banana boi#1982, \n\n**{ctx.author.name} is requesting access to use the eval bot.")
+    await lol.send(f"\n\n**{ctx.author.name} (ID: {ctx.author.id})** is requesting access to use the eval bot.")
     await ctx.send("Thank you for requesting access! You will be replied shortly.")
     
 
