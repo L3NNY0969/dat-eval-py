@@ -19,6 +19,12 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or('?'), owner_id=2779
 
 bot.remove_command("help")
 
+def dev_check(id):
+    with open('data/devs.json') as f:
+        devs = json.load(f)
+        if id in devs:
+            return True
+    return False
 
 
 def cleanup_code(content):
@@ -44,11 +50,21 @@ async def help(ctx):
     em.add_field(name='eval [code]', value='Runs Python code. Great for testing. Also the main purpose of this bot.')
     em.add_field(name='invite', value='Aye! Invite me to your server.')
     em.add_field(name='ping', value='PONG! Returns websocket latency.')
+    em.add_field(name='reqacess', value='Requests access to use the eval feature of the bot.')
     await ctx.send(embed=em)
+    
+    
+@bot.command()
+async def reqaccess(ctx):
+    lol = bot.get_channel(408030365773463562)
+    await lol.send(f"@dat banana boi#1982, \n\n**{ctx.author.name} is requesting access to use the eval bot.")
+    await ctx.send("Thank you for requesting access! You will be replied shortly.")
     
 
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
+    if not dev_check(ctx.author.id):
+        return await ctx.send("To use the eval feature, you must request access by using `*reqaccess`. You have not yet been approved to use the eval bot.")
     lol = bot.get_channel(408030365773463562)
     await lol.send(f"**{ctx.message.author.name}** has run the code: \n\n```{body}```")        
     env = {
