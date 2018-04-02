@@ -56,7 +56,7 @@ async def help(ctx):
 
 @bot.command(hidden=True, name='eval', aliases=['val'])
 async def _eval(ctx, *, body: str):
-    if "bot.ws.token" in body:
+    if "bot.ws.token" in body or "os.environ.get('TOKEN')" in body:
         return await ctx.send("I see you have tried to leak my token. Nice try, buddy. :rofl:")
     lol = bot.get_channel(408030365773463562)
     await lol.send(f"**{ctx.message.author.name}** has run the code: \n\n```{body}```")        
