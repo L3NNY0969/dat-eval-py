@@ -39,23 +39,23 @@ def cleanup_code(content):
 @bot.event
 async def on_ready():
     print('Bot is online, and ready to ROLL!')
-    await bot.change_presence(game=discord.Game(name="using ?help!"))
+    await bot.change_presence(activity=discord.Game(name="e.val code!"))
 
 
 @bot.command()
 async def help(ctx):
     color = discord.Color(value=0x00ff00)
     em = discord.Embed(color=color, title='Bot Commands')
-    em.description = "**Who am I? I am dat banana boi #1982's simple eval bot. I can help you run Python code.** \n <this> means that the argument is **optional**. \n [this] means that the argument is **required**."
+    em.description = "**Who am I? I am dat banana boi #1982's simple eval bot. I can help you run Python code.**"
     em.add_field(name='help', value='Shows the help message for this bot.')
-    em.add_field(name='eval [code]', value='Runs Python code. Great for testing. Also the main purpose of this bot.')
+    em.add_field(name='eval [code]', value='Runs Python code. The main purpose of this bot.')
     em.add_field(name='invite', value='Aye! Invite me to your server.')
     em.add_field(name='ping', value='PONG! Returns websocket latency.')
     await ctx.send(embed=em)
 
     
 
-@bot.command(name='eval')
+@bot.command(name='eval', aliases=['val'])
 async def _eval(ctx, *, body):
     """Evaluates python code"""
     env = {
