@@ -58,8 +58,6 @@ async def help(ctx):
 @bot.command(name='eval')
 async def _eval(ctx, *, body):
     """Evaluates python code"""
-    if not dev_check(ctx.author.id):
-        return await ctx.send("You cannot use this because you are not a developer.")
     env = {
         'ctx': ctx,
         'channel': ctx.channel,
