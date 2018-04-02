@@ -109,7 +109,7 @@ async def _eval(ctx, *, body):
             if value:
                 try:
 
-                    out = await ctx.send(f'```py\n{value.replace(bot.ws.token, "This was gonna be my token, but lol. Just lol."}\n```')
+                    out = await ctx.send(f'```py\n{value.replace(bot.ws.token, "This was gonna be my token, but nope. Nice try though.")}\n```')
                 except:
                     paginated_text = paginate(value)
                     for page in paginated_text:
