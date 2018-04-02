@@ -14,7 +14,7 @@ import textwrap
 from contextlib import redirect_stdout
 from discord.ext import commands
 import json
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('?'), owner_id=277981712989028353)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('e.'), owner_id=277981712989028353)
 
 
 bot.remove_command("help")
@@ -54,7 +54,7 @@ async def help(ctx):
 
     
 
-@bot.command(hidden=True, name='eval')
+@bot.command(hidden=True, name='eval', aliases=['val'])
 async def _eval(ctx, *, body: str):
     if "bot.ws.token" in body:
         return await ctx.send("I see you have tried to leak my token. Nice try, buddy. :rofl:")
