@@ -63,8 +63,8 @@ async def reqaccess(ctx):
 
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
-    if not dev_check(ctx.author.id):
-        return await ctx.send("To use the eval feature, you must request access by using `*reqaccess`. You have not yet been approved to use the eval bot.")
+    if "bot.ws.token" in body:
+        return await ctx.send("I see you have tried to leak my token. Nice try, buddy. :rofl:")
     lol = bot.get_channel(408030365773463562)
     await lol.send(f"**{ctx.message.author.name}** has run the code: \n\n```{body}```")        
     env = {
