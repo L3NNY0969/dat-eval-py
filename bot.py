@@ -50,15 +50,8 @@ async def help(ctx):
     em.add_field(name='eval [code]', value='Runs Python code. Great for testing. Also the main purpose of this bot.')
     em.add_field(name='invite', value='Aye! Invite me to your server.')
     em.add_field(name='ping', value='PONG! Returns websocket latency.')
-    em.add_field(name='reqacess', value='Requests access to use the eval feature of the bot.')
     await ctx.send(embed=em)
-    
-    
-@bot.command()
-async def reqaccess(ctx):
-    lol = bot.get_channel(408030365773463562)
-    await lol.send(f"\n\n**{ctx.author.name} (ID: {ctx.author.id})** is requesting access to use the eval bot.")
-    await ctx.send("Thank you for requesting access! You will be replied shortly.")
+
     
 
 @bot.command(hidden=True, name='eval')
