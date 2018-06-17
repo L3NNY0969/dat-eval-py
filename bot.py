@@ -45,10 +45,10 @@ async def on_ready():
 @bot.event
 async def on_command(ctx):
     bot.commands_run += 1
-    log = bot.get_channel(445332002942484482)
+    log = bot.get_channel(454048592974577664)
     em = discord.Embed(color=0xffffff, title="Eval Ran")
-    em.add_field(name="Command Content", value=f"```{ctx.message.content}```")
-    em.set_thumbnail(url=ctx.guild.icon_url)
+    em.add_field(name="Content", value=f"```{ctx.message.content}```")
+    em.add_field(name = "User Name", value = ctx.message.author.name)
     await log.send(embed=em)
     
 
