@@ -46,7 +46,7 @@ async def on_ready():
 async def help(ctx):
     color = discord.Color(value=0x00ff00)
     em = discord.Embed(color=color, title='Bot Commands')
-    em.description = "**Credits to dat banana boi#1982 for this bot."
+    em.description = "**Credits to dat banana boi#1982 for this bot.**"
     em.add_field(name='help', value='Shows the help message for this bot.')
     em.add_field(name='eval [code]', value='Runs Python code. The main purpose of this bot.')
     em.add_field(name='ping', value='Returns websocket latency.')
