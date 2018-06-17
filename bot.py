@@ -41,6 +41,16 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     await bot.change_presence(activity=discord.Game(name="with python code | py.help"))
 
+    
+@bot.event
+async def on_command(ctx):
+    bot.commands_run += 1
+    log = bot.get_channel(445332002942484482)
+    em = discord.Embed(color=0xffffff, title="Eval Ran")
+    em.add_field(name="Command Content", value=f"```{ctx.message.content}```")
+    em.set_thumbnail(url=ctx.guild.icon_url)
+    await log.send(embed=em)
+    
 
 @bot.command()
 async def help(ctx):
