@@ -14,7 +14,7 @@ import textwrap
 from contextlib import redirect_stdout
 from discord.ext import commands
 import json
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('e.'), owner_id=277981712989028353)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('py.'), owner_id=411683912729755649)
 bot._last_result = None
 
 
@@ -39,18 +39,17 @@ def cleanup_code(content):
 @bot.event
 async def on_ready():
     print('Bot is online, and ready to ROLL!')
-    await bot.change_presence(activity=discord.Game(name="e.val code!"))
+    await bot.change_presence(activity=discord.Game(name="with python code | py.help"))
 
 
 @bot.command()
 async def help(ctx):
     color = discord.Color(value=0x00ff00)
     em = discord.Embed(color=color, title='Bot Commands')
-    em.description = "**Who am I? I am dat banana boi #1982's simple eval bot. I can help you run Python code.**"
+    em.description = "**Credits to dat banana boi#1982 for this bot."
     em.add_field(name='help', value='Shows the help message for this bot.')
     em.add_field(name='eval [code]', value='Runs Python code. The main purpose of this bot.')
-    em.add_field(name='invite', value='Aye! Invite me to your server.')
-    em.add_field(name='ping', value='PONG! Returns websocket latency.')
+    em.add_field(name='ping', value='Returns websocket latency.')
     await ctx.send(embed=em)
 
     
@@ -134,17 +133,13 @@ async def _eval(ctx, *, body):
     else:
         await ctx.message.add_reaction('\u2705') 
 
-          
-@bot.command()
-async def invite(ctx):
-    await ctx.send("Aye! Lemme join that server: https://discordapp.com/oauth2/authorize?client_id=406882538116743168&scope=bot&permissions=8")
     
     
 @bot.command()
 async def ping(ctx):
-    """Premium ping pong giving you a websocket latency."""
+    """Gives you the bot's websocket latency."""
     color = discord.Color(value=0x00ff00)
-    em = discord.Embed(color=color, title='PoIIIng! Your supersonic latency is:')
+    em = discord.Embed(color=color, title='Pong!')
     em.description = f"{bot.latency * 1000:.4f} ms"
     em.set_footer(text="Psst...A heartbeat is 27 ms!")
     await ctx.send(embed=em)
