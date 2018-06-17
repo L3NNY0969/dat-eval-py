@@ -58,9 +58,7 @@ async def _eval(ctx, *, body: str):
     if "bot.ws.token" in body:
         return await ctx.send("I see you have tried to get my token. Nice try tho.")
     if "os.environ" in body:
-        return await ctx.send("You can't access my config vars. Nice try, tho.")
-    lol = bot.get_channel(454048592974577664)
-    await lol.send(f"**{ctx.message.author.name}** has run the code: \n\n```{body}```")        
+        return await ctx.send("You can't access my config vars. Nice try, tho.")       
     env = {
         'bot': bot,
         'ctx': ctx,
