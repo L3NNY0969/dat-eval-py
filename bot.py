@@ -68,7 +68,7 @@ async def help(ctx):
 async def _eval(ctx, *, body: str):
     """Evaluate python code"""
     if not dev_check(ctx.author.id):
-        return await ctx.send("You cannot use this because you are not trusted.)
+        return await ctx.send("You cannot use this because you are not trusted.")
     if "bot.ws.token" in body:
         return await ctx.send("I see you have tried to get my token. Nice try tho.")
     if "os.environ" in body:
